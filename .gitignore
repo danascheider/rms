@@ -13,3 +13,6 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore RSpec examples.txt file
+/spec/examples.txt
