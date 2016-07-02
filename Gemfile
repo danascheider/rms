@@ -38,7 +38,7 @@ gem "devise", "~> 4.2"
 group :development, :test do
   gem "byebug", "~> 9.0", platform: :mri
   gem "rspec-rails", "~> 3.5"
-  gem "cucumber-rails", "~> 1.4"
+  gem "cucumber-rails", "~> 1.4", require: false
   gem "factory_girl_rails", "~> 4.7"
   gem "coveralls", "~> 0.8"
 end
