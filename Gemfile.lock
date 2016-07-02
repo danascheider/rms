@@ -251,7 +251,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   coveralls (~> 0.8)
   cucumber-rails (~> 1.4)
-  database_cleaner
+  database_cleaner (~> 1.5)
   devise (~> 4.2)
   factory_girl_rails (~> 4.7)
   jbuilder (~> 2.5)
