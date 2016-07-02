@@ -81,6 +81,7 @@ GEM
       nokogiri (>= 1.5.0)
       rails (>= 3.0.0)
     cucumber-wire (0.0.1)
+    database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -250,6 +251,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   coveralls (~> 0.8)
   cucumber-rails (~> 1.4)
+  database_cleaner
   devise (~> 4.2)
   factory_girl_rails (~> 4.7)
   jbuilder (~> 2.5)

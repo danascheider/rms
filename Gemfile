@@ -41,6 +41,7 @@ group :development, :test do
   gem "cucumber-rails", "~> 1.4", require: false
   gem "factory_girl_rails", "~> 4.7"
   gem "coveralls", "~> 0.8"
+  gem "database_cleaner"
 end
 
 group :development do
