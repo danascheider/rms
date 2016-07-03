@@ -1,10 +1,11 @@
-class Users::SessionsController < Devise::SessionsController
+class User::SessionsController < Devise::SessionsController
+  skip_before_action :authenticate_user!, only: [:new, :create]
 # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    redirect_to user_google_oauth2_omniauth_authorize
+  end
 
   # POST /resource/sign_in
   # def create

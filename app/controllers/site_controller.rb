@@ -1,4 +1,4 @@
 class SiteController < ApplicationController
-  def login
+  def index
   end
 end

@@ -1,3 +1,7 @@
+Given(/^I am not logged in$/) do 
+  # no-op
+end
+
 When(/^I visit the homepage$/) do 
   visit "/"
 end

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  get 'site/index'
+
+  root to: "site#index"
+
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
-  devise_scope :user do 
-    root to: "devise/sessions#new"
+  resources :users do 
+    resources :contacts, shallow: true
   end
 end
