@@ -1,2 +1,16 @@
-<h1>Site#index</h1>
-<p>Find me in app/views/site/index.html.erb</p>
+<div class="row">
+  <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h1 class="text-center">Login</h1>
+        </div>
+        <div class="modal-body">
+
+          <%= button_to "Log in with Google", user_google_oauth2_omniauth_authorize_path, class: "btn btn-lg btn-primary btn-block" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
