@@ -2,14 +2,15 @@ class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   # You should also create an action method in this controller like this:
   def google_oauth2
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+    user = ::User.from_omniauth(oauth_response)
 
-    if @user.persisted?
-      sign_in_and_redirect @user, :event => :authentication
-      set_flash_message(:notice, :success, :kind => "Google") if is_navigational_format?
+    if user.persisted?
+      flash[:notice] = I18n.t("devise.omniauth_callbacks.success", kind: provider)
+      sign_in_and_redirect user, event: :authentication
     else
-      session["devise.google_oauth2_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_url
+      session["devise.google_data"] = oauth_response.except(:extra)
+      params[:error] = :account_not_found
+      do_failure_things
     end
   end
 
