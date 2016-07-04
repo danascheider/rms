@@ -1,5 +1,4 @@
 class User::SessionsController < Devise::SessionsController
-  skip_before_action :authenticate_user!, only: [:new, :create]
 # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -16,11 +15,6 @@ class User::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
-
-
-  def authenticate_user!
-    redirect_to user_google_oauth2_omniauth_authorize unless user_signed_in?
-  end
 
   # protected
 
