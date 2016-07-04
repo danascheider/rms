@@ -1,4 +1,5 @@
 class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  before_action :test_if_correct_controller
 
   # You should also create an action method in this controller like this:
   def google_oauth2
@@ -24,6 +25,10 @@ class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # GET|POST /users/auth/twitter/callback
   def failure
     redirect_to root_path
+  end
+
+  def test_if_correct_controller
+    puts "*** This is the correct controller ***"
   end
 
   protected
