@@ -63,12 +63,13 @@ class ContactsController < ApplicationController
     end
   end
 
-  private
-    def authenticate_user!
-      unless user_signed_in? && @user == current_user
-        redirect_to root_path
-      end
+  def authenticate_user!
+    unless user_signed_in? && @user == current_user
+      redirect_to root_path
     end
+  end
+
+  private
 
     def set_user
       @user = params[:user_id] ? User.find(params[:user_id]) : @contact.user
