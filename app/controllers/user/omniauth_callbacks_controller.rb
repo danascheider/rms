@@ -17,9 +17,9 @@ class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # https://github.com/plataformatec/devise#omniauth
 
   # GET|POST /resource/auth/twitter
-  # def passthru
-  #   super
-  # end
+  def passthru
+    redirect_to @user
+  end
 
   # GET|POST /users/auth/twitter/callback
   def failure
