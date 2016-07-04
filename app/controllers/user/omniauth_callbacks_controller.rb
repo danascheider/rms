@@ -1,5 +1,5 @@
 class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  before_action :test_if_correct_controller
+  skip_before_filter :verify_authenticity_token
 
   # You should also create an action method in this controller like this:
   def google_oauth2
