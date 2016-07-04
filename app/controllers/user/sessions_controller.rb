@@ -17,11 +17,12 @@ class User::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  protected
 
   def authenticate_user!
     redirect_to user_google_oauth2_omniauth_authorize unless user_signed_in?
   end
+
+  # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
