@@ -11,7 +11,7 @@ class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   # GET|POST /resource/auth/twitter
   def passthru
-    redirect_to @user
+    redirect_to user_contacts(@user)
   end
 
   # GET|POST /users/auth/twitter/callback
