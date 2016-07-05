@@ -1,18 +1,9 @@
 class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   skip_before_filter :verify_authenticity_token
+  before_filter :handle_authentication
 
   # You should also create an action method in this controller like this:
   def google_oauth2
-    # You need to implement the method below in your model (e.g. app/models/user.rb)
-    @user = User.from_omniauth(request.env["omniauth.auth"])
-
-    if @user.persisted?
-      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"
-      sign_in_and_redirect @user, :event => :authentication
-    else
-      session["devise.google_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
-    end
   end
 
   # More info at:
@@ -32,6 +23,11 @@ class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def sign_in_and_redirect(user)
     redirect_to user
+  end
+
+  def handle_authentication
+    @user = User.from_oauth(request.env["omniauth.auth"])
+    File.open("omniauth.txt", "w+") {|file| file.puts request.env["omniauth.auth"] }
   end
 
   # The path used when OmniAuth fails
