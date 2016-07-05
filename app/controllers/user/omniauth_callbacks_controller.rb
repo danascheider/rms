@@ -25,7 +25,7 @@ class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   # GET|POST /users/auth/twitter/callback
   def failure
-    redirect_to root_path
+    render nothing: true
   end
 
   protected
