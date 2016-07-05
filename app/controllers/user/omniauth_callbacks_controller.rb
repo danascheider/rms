@@ -26,8 +26,8 @@ class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def handle_authentication
-    @user = User.from_oauth(request.env["omniauth.auth"])
     File.open("omniauth.txt", "w+") {|file| file.puts request.env["omniauth.auth"] }
+    @user = User.from_oauth(request.env["omniauth.auth"])
   end
 
   # The path used when OmniAuth fails
